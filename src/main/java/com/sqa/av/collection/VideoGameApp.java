@@ -76,7 +76,7 @@ public class VideoGameApp {
 
 		// enemies.put(10, 346572L);
 		// enemies.put(58, 23864234L);
-		// enemi es.put(19, 546546L);
+		// enemies.put(19, 546546L);
 		// enemies.put(48, 123L);
 		// enemies.put(8, (long) 785764);
 		// enemies.put(95, Long.valueOf(126764));
