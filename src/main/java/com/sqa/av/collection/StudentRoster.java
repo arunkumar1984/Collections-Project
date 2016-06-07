@@ -10,6 +10,8 @@
 
 package com.sqa.av.collection;
 
+import java.util.*;
+
 //Collection Type: Hash Set
 
 /**
@@ -42,7 +44,10 @@ public class StudentRoster {
 	public static void displayElements(StudentRoster sr) {
 		// Provide logic to view elements in collection for TrendingTags
 		// instance
-
+		sr.displayElements();
+		System.out.println("\n------------------------");
+		sr.displayElements();
+		System.out.println("\n************************");
 	}
 
 	/**
@@ -55,13 +60,24 @@ public class StudentRoster {
 		// Display Elements
 		sr.displayElements();
 		// Add and remove few elements to the collection
-		sr.addElement("KATL2943");
-		sr.removeElement("KATL2943");
+		// Add Elements
+		sr.addElement("AV123456");
+		sr.addElement("AV234567");
+		sr.displayElements();
+
+		// Remove Elements
+		sr.removeElement("AV123456");
+
+		sr.displayElements();
+		sr.removeElement("JENP8319");
 		// Use a staic method version to view elements
 		displayElements(sr);
 	}
 
-	String[] students = { "JOHND9824", "KIML2794", "LUISM3262", "JENP8319", "JEFFN1092", "DIANER9216" };
+	private Set<String> studentSets;
+
+	// String[] students = { "JOHND9824", "KIML2794", "LUISM3262", "JENP8319",
+	// "JEFFN1092", "DIANER9216" };
 
 	/**
 	 * Default constructor
@@ -69,13 +85,27 @@ public class StudentRoster {
 	public StudentRoster() {
 		// Either overload this class or make this default default constructor
 		// interactive.
+		this.studentSets = new HashSet<String>();
+		String[] students = { "JOHND9824", "KIML2794", "LUISM3262", "JENP8319", "JEFFN1092", "DIANER9216" };
+		addElements(students);
 	}
 
 	/**
 	 * Method to add an element
 	 */
-	public void addElement(String... val) {
+	public void addElement(String val) {
 		// provide logic to add an element
+		this.studentSets.add(val);
+
+	}
+
+	public void addElements(String... val) {
+		// provide logic to add an element
+		for (int i = 0; i < val.length; i++) {
+			// this.studentSets.add(val[i]);
+			addElement(val[i]);
+		}
+
 	}
 
 	/**
@@ -83,6 +113,10 @@ public class StudentRoster {
 	 */
 	public void removeElement(String... val) {
 		// provide logic to remove an element
+		for (String i : val) {
+			this.studentSets.remove(i);
+
+		}
 	}
 
 	/**
@@ -90,6 +124,24 @@ public class StudentRoster {
 	 */
 	private void displayElements() {
 		// Provide logic to view elements for instance
+
+		// for (int i = 0; i < this.studentSets.size(); i++) {
+		// // System.out.println(this.studentSets[i]);
+		// System.out.println(this.studentSets.iterator(i));
+		// }
+
+		// Option A
+		System.out.println("\nThe List of Student IDs\n------------------------");
+		for (String string : this.studentSets) {
+			System.out.println(string);
+		}
+
+		// // Option B
+		// Iterator i = this.studentSets.iterator();
+		// while (i.hasNext()) {
+		// System.out.println("Element:" + i.next());
+		// // this.studentSets.
+		// }
 
 	}
 
